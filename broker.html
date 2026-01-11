@@ -1,0 +1,3638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>T&Ş | Ultimate Luxury Real Estate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollToPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/MotionPathPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.7.2/dist/vanilla-tilt.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <style>
+        :root {
+            /* Premium Japanese colors */
+            --japan-vermillion: #b5495b;
+            --japan-indigo: #1a3a40;
+            --japan-ivory: #fffff7;
+            --japan-gold: #d4af37;
+            --japan-charcoal: #2c2c2c;
+            --japan-washi: #f8f5f0;
+            --japan-sakura: #ffb7c5;
+            --japan-moss: #6b8e23;
+            
+            /* Premium Albanian colors */
+            --albania-red: #da291c;
+            --albania-black: #0a0a0a;
+            --albania-silver: #e0e0e0;
+            --albania-stone: #8a8d8f;
+            --albania-gold: #ffd700;
+            --albania-blue: #3d85c6;
+            
+            /* Combined luxury palette */
+            --primary-dark: var(--japan-indigo);
+            --primary-light: var(--japan-ivory);
+            --accent-warm: var(--japan-vermillion);
+            --accent-cool: var(--albania-silver);
+            --gold-accents: var(--japan-gold);
+            --text-primary: var(--japan-charcoal);
+            --text-secondary: var(--albania-stone);
+            --success: var(--japan-moss);
+            --warning: var(--albania-gold);
+            --info: var(--albania-blue);
+            
+            /* Glass morphism */
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            
+            /* Animation easings */
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+            --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            scroll-padding-top: 100px;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--japan-washi);
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            touch-action: pan-y;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', 'Noto Serif JP', serif;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title h2 {
+            font-size: 4.5rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--japan-indigo) 0%, var(--albania-black) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-title .title-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 6rem;
+            opacity: 0.03;
+            z-index: -1;
+            font-weight: 900;
+            white-space: nowrap;
+            pointer-events: none;
+        }
+        
+        .section-title p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 42px;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            color: white;
+            border: none;
+            border-radius: 0;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.5s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 30px rgba(181, 73, 91, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            min-height: 56px;
+            touch-action: manipulation;
+        }
+        
+        .btn::before, .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            transition: transform 0.7s var(--ease-out-expo);
+        }
+        
+        .btn::before {
+            background: linear-gradient(135deg, var(--japan-indigo), var(--albania-black));
+            transform: translateX(-100%);
+        }
+        
+        .btn::after {
+            background: linear-gradient(135deg, var(--japan-gold), var(--albania-gold));
+            transform: translateX(-200%);
+        }
+        
+        .btn:hover::before {
+            transform: translateX(0);
+        }
+        
+        .btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(181, 73, 91, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--japan-vermillion);
+            color: var(--japan-vermillion);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--japan-vermillion);
+            color: white;
+        }
+        
+        /* Ultra Premium Header */
+        .ultra-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.8s var(--ease-out-expo);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            position: relative;
+        }
+        
+        .logo-animated {
+            width: 70px;
+            height: 70px;
+            margin-right: 20px;
+            position: relative;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1;
+            letter-spacing: -0.03em;
+        }
+        
+        .logo-sub {
+            font-size: 0.75rem;
+            letter-spacing: 4px;
+            color: var(--text-secondary);
+            margin-top: 8px;
+            text-transform: uppercase;
+        }
+        
+        .nav-main {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 3rem;
+            position: relative;
+        }
+        
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            padding: 8px 0;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--japan-vermillion), var(--albania-red));
+            transition: width 0.5s var(--ease-out-expo);
+        }
+        
+        .nav-links li a:hover::before {
+            width: 100%;
+        }
+        
+        .nav-links li a:hover {
+            color: var(--japan-vermillion);
+        }
+        
+        .nav-cta {
+            margin-left: 4rem;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            cursor: pointer;
+            z-index: 3000;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Enhanced European Hero Section */
+        .european-hero {
+            height: 110vh;
+            min-height: 700px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, 
+                rgba(248, 245, 240, 0.97) 0%, 
+                rgba(255, 255, 255, 0.98) 30%,
+                rgba(255, 248, 240, 0.95) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            isolation: isolate;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(181, 73, 91, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(26, 58, 64, 0.05) 0%, transparent 40%);
+        }
+
+        .hero-canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            opacity: 0.4;
+            filter: blur(1px);
+        }
+
+        #hero-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .hero-text {
+            padding-right: 60px;
+            position: relative;
+        }
+
+        .hero-title {
+            font-size: 5.2rem;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            transform: translateY(60px);
+            position: relative;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--japan-vermillion), var(--japan-gold));
+            border-radius: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(60px);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            max-width: 90%;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 25px;
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 750px;
+            perspective: 2000px;
+            transform-style: preserve-3d;
+        }
+
+        .hero-office-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.15));
+            transform: rotateY(-5deg) rotateX(3deg);
+            transform-style: preserve-3d;
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 15%;
+            left: 5%;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--japan-gold), var(--albania-gold));
+            border-radius: 50%;
+            opacity: 0.3;
+            filter: blur(2px);
+            animation: float-1 8s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 25%;
+            right: 10%;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            border-radius: 50%;
+            opacity: 0.2;
+            filter: blur(3px);
+            animation: float-2 12s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--japan-indigo), var(--albania-black));
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(1px);
+            animation: float-3 10s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(4) {
+            bottom: 30%;
+            right: 5%;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--japan-sakura), rgba(255, 183, 197, 0.3));
+            border-radius: 50%;
+            opacity: 0.2;
+            filter: blur(2px);
+            animation: float-4 9s ease-in-out infinite;
+        }
+
+        @keyframes float-1 {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        @keyframes float-2 {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-40px) scale(1.2); }
+        }
+
+        @keyframes float-3 {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(20px) rotate(90deg); }
+        }
+
+        @keyframes float-4 {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(15px, -20px); }
+            66% { transform: translate(-10px, 15px); }
+        }
+
+        /* Hero Decorative Lines */
+        .hero-decorative-line {
+            position: absolute;
+            background: linear-gradient(90deg, transparent, var(--japan-gold), transparent);
+            height: 1px;
+            width: 40%;
+            opacity: 0.3;
+            z-index: 3;
+        }
+
+        .hero-decorative-line:nth-child(1) {
+            top: 20%;
+            left: -10%;
+            transform: rotate(-15deg);
+        }
+
+        .hero-decorative-line:nth-child(2) {
+            bottom: 30%;
+            right: -10%;
+            transform: rotate(15deg);
+        }
+
+        /* Hero shine effect */
+        .hero-shine {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 50%);
+            transform: rotate(45deg);
+            z-index: 1;
+            animation: shine 8s infinite linear;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* Architectural Masterpiece Showcase */
+        .architectural-masterpiece {
+            padding: 150px 0;
+            background-color: var(--japan-washi);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .masterpiece-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+        
+        .masterpiece-visual {
+            position: relative;
+            height: 700px;
+            perspective: 1500px;
+        }
+        
+        .architecture-svg-ultimate {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.15));
+        }
+        
+        .masterpiece-text {
+            padding-right: 60px;
+        }
+        
+        .masterpiece-text h2 {
+            font-size: 4rem;
+            margin-bottom: 2.5rem;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+        
+        .masterpiece-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .features-list-ultimate {
+            list-style: none;
+            margin-top: 3rem;
+        }
+        
+        .features-list-ultimate li {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            transition: all 0.5s var(--ease-out-expo);
+            border-left: 4px solid transparent;
+        }
+        
+        .features-list-ultimate li:hover {
+            transform: translateX(10px);
+            background: white;
+            border-left: 4px solid var(--japan-vermillion);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-icon-ultimate {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
+            color: white;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 10px 25px rgba(181, 73, 91, 0.3);
+        }
+        
+        /* Luxury Properties Gallery */
+        .luxury-properties-gallery {
+            padding: 150px 0;
+            background-color: var(--primary-light);
+            position: relative;
+        }
+        
+        .properties-filter-ultimate {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 5rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .filter-btn-ultimate {
+            padding: 16px 36px;
+            background: transparent;
+            border: 2px solid var(--accent-cool);
+            color: var(--text-primary);
+            border-radius: 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.5s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            min-height: 56px;
+            touch-action: manipulation;
+        }
+        
+        .filter-btn-ultimate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            z-index: -1;
+            transition: transform 0.7s var(--ease-out-expo);
+            transform: translateX(-100%);
+        }
+        
+        .filter-btn-ultimate.active, .filter-btn-ultimate:hover {
+            color: white;
+            border-color: transparent;
+        }
+        
+        .filter-btn-ultimate.active::before, .filter-btn-ultimate:hover::before {
+            transform: translateX(0);
+        }
+        
+        .properties-grid-ultimate {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 50px;
+        }
+        
+        .property-card-ultimate {
+            background: white;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.8s var(--ease-out-expo);
+            position: relative;
+        }
+        
+        .property-card-ultimate:hover {
+            transform: translateY(-30px);
+            box-shadow: 0 50px 80px rgba(0, 0, 0, 0.15);
+        }
+        
+        .property-media-ultimate {
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .property-image-ultimate {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s var(--ease-out-expo);
+        }
+        
+        .property-card-ultimate:hover .property-image-ultimate {
+            transform: scale(1.15);
+        }
+        
+        .property-badge-ultimate {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            z-index: 2;
+            box-shadow: 0 10px 25px rgba(181, 73, 91, 0.3);
+        }
+        
+        .property-content-ultimate {
+            padding: 40px;
+        }
+        
+        .property-price-ultimate {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+        }
+        
+        .property-title-ultimate {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        
+        .property-location-ultimate {
+            display: flex;
+            align-items: center;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .property-location-ultimate i {
+            margin-right: 12px;
+            color: var(--japan-vermillion);
+            font-size: 1.3rem;
+        }
+        
+        .property-features-ultimate {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-ultimate {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .feature-ultimate i {
+            font-size: 1.5rem;
+            color: var(--japan-vermillion);
+            margin-bottom: 12px;
+        }
+        
+        .feature-ultimate span {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        
+        /* Cultural Fusion Experience */
+        .cultural-fusion-experience {
+            padding: 150px 0;
+            background-color: var(--japan-washi);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fusion-container-ultimate {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+        
+        .fusion-visual-ultimate {
+            position: relative;
+            height: 700px;
+        }
+        
+        .fusion-svg-ultimate {
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Concierge Services */
+        .concierge-services {
+            padding: 150px 0;
+            background-color: var(--primary-light);
+        }
+        
+        .services-grid-ultimate {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 50px;
+        }
+        
+        .service-card-ultimate {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 0;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.8s var(--ease-out-expo);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card-ultimate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--japan-vermillion), var(--albania-red), var(--japan-gold));
+            z-index: 2;
+        }
+        
+        .service-card-ultimate::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--japan-indigo), var(--albania-black));
+            transition: height 0.8s var(--ease-out-expo);
+            z-index: -1;
+        }
+        
+        .service-card-ultimate:hover::after {
+            height: 100%;
+        }
+        
+        .service-card-ultimate:hover {
+            transform: translateY(-30px);
+            color: white;
+        }
+        
+        .service-card-ultimate:hover .service-icon-ultimate,
+        .service-card-ultimate:hover .service-title-ultimate,
+        .service-card-ultimate:hover .service-desc-ultimate {
+            color: white;
+        }
+        
+        .service-icon-ultimate {
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: var(--japan-vermillion);
+            transition: color 0.5s ease;
+        }
+        
+        .service-title-ultimate {
+            font-size: 2rem;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            transition: color 0.5s ease;
+            line-height: 1.2;
+        }
+        
+        .service-desc-ultimate {
+            color: var(--text-secondary);
+            transition: color 0.5s ease;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+        
+        /* Testimonials Slider */
+        .testimonials-ultimate {
+            padding: 150px 0;
+            background-color: var(--japan-washi);
+        }
+        
+        .testimonial-slider-ultimate {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card-ultimate {
+            background: white;
+            padding: 80px;
+            border-radius: 0;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            margin: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card-ultimate::before {
+            content: "❝";
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 8rem;
+            color: var(--japan-vermillion);
+            opacity: 0.1;
+            font-family: serif;
+        }
+        
+        .testimonial-content-ultimate {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-author-ultimate {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar-ultimate {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 30px;
+            border: 4px solid var(--japan-vermillion);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .author-avatar-ultimate img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info-ultimate h4 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+        
+        .author-info-ultimate p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Form */
+        .premium-contact-ultimate {
+            padding: 150px 0;
+            background-color: var(--primary-light);
+            position: relative;
+        }
+        
+        .contact-container-ultimate {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+        
+        .contact-form-container-ultimate {
+            background: white;
+            padding: 80px;
+            border-radius: 0;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-form-container-ultimate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--japan-vermillion), var(--albania-red), var(--japan-gold));
+        }
+        
+        .form-group-ultimate {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .form-control-ultimate {
+            width: 100%;
+            padding: 22px 25px;
+            border: 2px solid var(--accent-cool);
+            border-radius: 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.5s var(--ease-out-expo);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control-ultimate:focus {
+            outline: none;
+            border-color: var(--japan-vermillion);
+            box-shadow: 0 10px 30px rgba(181, 73, 91, 0.1);
+            background: white;
+        }
+        
+        .contact-info-ultimate {
+            padding-left: 60px;
+        }
+        
+        .contact-info-ultimate h3 {
+            font-size: 3.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-dark);
+            line-height: 1.1;
+        }
+        
+        .contact-item-ultimate {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 50px;
+        }
+        
+        .contact-icon-ultimate {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 35px;
+            color: white;
+            font-size: 2rem;
+            flex-shrink: 0;
+            box-shadow: 0 15px 30px rgba(181, 73, 91, 0.3);
+        }
+        
+        /* Footer */
+        .premium-footer-ultimate {
+            background: var(--primary-dark);
+            color: white;
+            padding: 100px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-container-ultimate {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 80px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-logo-ultimate {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo-ultimate span {
+            color: var(--japan-gold);
+        }
+        
+        .footer-desc-ultimate {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        .social-links-ultimate {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-link-ultimate {
+            width: 55px;
+            height: 55px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.5s var(--ease-out-expo);
+            font-size: 1.3rem;
+        }
+        
+        .social-link-ultimate:hover {
+            background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red));
+            transform: translateY(-10px);
+        }
+        
+        .footer-heading-ultimate {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .footer-heading-ultimate::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--japan-gold);
+        }
+        
+        .footer-links-ultimate {
+            list-style: none;
+        }
+        
+        .footer-links-ultimate li {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links-ultimate li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            display: inline-block;
+        }
+        
+        .footer-links-ultimate li a:hover {
+            color: white;
+            transform: translateX(10px);
+        }
+        
+        .copyright-ultimate {
+            text-align: center;
+            padding-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Particle Background for Footer */
+        .footer-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Animation classes */
+        .fade-in-up-ultimate {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: opacity 1.2s var(--ease-out-expo), 
+                        transform 1.2s var(--ease-out-expo);
+        }
+        
+        .fade-in-up-ultimate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ====================
+           MOBILE RESPONSIVE STYLES
+           ==================== */
+        
+        @media (max-width: 1400px) {
+            .hero-title {
+                font-size: 4.2rem;
+            }
+            
+            .hero-visual {
+                height: 650px;
+            }
+            
+            .masterpiece-container,
+            .fusion-container-ultimate,
+            .contact-container-ultimate {
+                grid-template-columns: 1fr;
+                gap: 80px;
+            }
+            
+            .masterpiece-text,
+            .contact-info-ultimate {
+                padding-right: 0;
+                padding-left: 0;
+            }
+            
+            .footer-container-ultimate {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 60px;
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            /* Enhanced Mobile Menu */
+            .nav-main {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1999;
+                overflow-y: auto;
+                padding: 100px 20px 40px;
+            }
+            
+            .nav-main.active {
+                display: flex;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                max-width: 400px;
+            }
+            
+            .nav-links li {
+                margin: 12px 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .nav-links li a {
+                font-size: 1.3rem;
+                padding: 15px 0;
+                display: block;
+                font-weight: 600;
+            }
+            
+            .nav-cta {
+                margin: 40px 0 0;
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .nav-cta .btn {
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            /* Mobile Hero Section */
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 60px;
+                padding: 0 40px;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                order: 2;
+            }
+            
+            .hero-title::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-visual {
+                height: 500px;
+                order: 1;
+            }
+            
+            .section-title h2 {
+                font-size: 3.5rem;
+            }
+            
+            .masterpiece-visual,
+            .fusion-visual-ultimate {
+                height: 600px;
+            }
+            
+            .properties-grid-ultimate {
+                grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            }
+            
+            .services-grid-ultimate {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Base mobile adjustments */
+            .container {
+                padding: 0 25px;
+            }
+            
+            /* Typography scaling for mobile */
+            .section-title h2 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title .title-decoration {
+                font-size: 3.5rem;
+            }
+            
+            section {
+                padding: 80px 0 !important;
+            }
+            
+            /* Hero Section Mobile */
+            .hero-content {
+                padding: 0 20px;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+                gap: 15px;
+            }
+            
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero-visual {
+                height: 350px;
+            }
+            
+            /* Architectural Section Mobile */
+            .masterpiece-container,
+            .fusion-container-ultimate,
+            .contact-container-ultimate {
+                gap: 50px;
+            }
+            
+            .masterpiece-text h2,
+            .fusion-text h2 {
+                font-size: 2.5rem;
+            }
+            
+            .features-list-ultimate li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+            }
+            
+            .feature-icon-ultimate {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+            
+            /* Services Grid Mobile */
+            .services-grid-ultimate {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card-ultimate {
+                padding: 40px 30px;
+            }
+            
+            /* Testimonials Mobile */
+            .testimonial-card-ultimate {
+                padding: 40px 30px;
+            }
+            
+            .testimonial-content-ultimate {
+                font-size: 1.2rem;
+            }
+            
+            .testimonial-author-ultimate {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-avatar-ultimate {
+                margin: 0 0 20px 0;
+            }
+            
+            /* Contact Form Mobile */
+            .contact-form-container-ultimate {
+                padding: 40px 30px;
+            }
+            
+            .contact-info-ultimate h3 {
+                font-size: 2.5rem;
+            }
+            
+            .contact-item-ultimate {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+            
+            .contact-icon-ultimate {
+                margin: 0 0 20px 0;
+            }
+            
+            /* Footer Mobile */
+            .footer-container-ultimate {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            /* Floating elements - reduce on mobile */
+            .floating-element {
+                display: none;
+            }
+            
+            /* Mobile Filter Buttons */
+            .properties-filter-ultimate {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+                -webkit-overflow-scrolling: touch;
+                margin-left: -25px;
+                margin-right: -25px;
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+            
+            .properties-filter-ultimate::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .filter-btn-ultimate {
+                flex-shrink: 0;
+                padding: 14px 25px;
+                font-size: 0.85rem;
+            }
+            
+            /* Properties Grid Mobile */
+            .properties-grid-ultimate {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .property-content-ultimate {
+                padding: 25px;
+            }
+            
+            .property-price-ultimate {
+                font-size: 1.8rem;
+            }
+            
+            .property-title-ultimate {
+                font-size: 1.5rem;
+            }
+            
+            /* Logo mobile adjustments */
+            .logo-main {
+                font-size: 1.8rem;
+            }
+            
+            .logo-animated {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            /* Hero decorative lines - hide on mobile */
+            .hero-decorative-line {
+                display: none;
+            }
+            
+            /* Optimize animations for mobile performance */
+            .hero-office-svg,
+            .architecture-svg-ultimate,
+            .fusion-svg-ultimate {
+                transform: none !important;
+            }
+            
+            /* Disable heavy canvas on mobile for performance */
+            #hero-canvas {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            /* Extra small devices */
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title .title-decoration {
+                font-size: 2.8rem;
+            }
+            
+            .logo-main {
+                font-size: 1.6rem;
+            }
+            
+            .logo-animated {
+                width: 45px;
+                height: 45px;
+                margin-right: 12px;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+            
+            .btn, .filter-btn-ultimate {
+                padding: 16px 24px;
+                font-size: 0.85rem;
+            }
+            
+            /* Property cards on small screens */
+            .property-content-ultimate {
+                padding: 20px;
+            }
+            
+            .property-price-ultimate {
+                font-size: 1.6rem;
+            }
+            
+            .property-title-ultimate {
+                font-size: 1.3rem;
+            }
+            
+            .property-features-ultimate {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            /* Mobile menu close button positioning */
+            .mobile-menu-btn {
+                position: relative;
+                z-index: 3000;
+            }
+            
+            /* Safe area insets for modern mobile devices */
+            @supports(padding: max(0px)) {
+                .container {
+                    padding-left: max(20px, env(safe-area-inset-left));
+                    padding-right: max(20px, env(safe-area-inset-right));
+                }
+            }
+        }
+        
+        /* Mobile touch feedback states */
+        .touch-active {
+            transform: scale(0.98) !important;
+            transition: transform 0.2s ease !important;
+        }
+        
+        /* Mobile form improvements */
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        select {
+            font-size: 16px; /* Prevents iOS zoom on focus */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 0;
+        }
+        
+        /* Mobile image optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Hide scrollbars on mobile but keep functionality */
+        @media (max-width: 768px) {
+            ::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        
+        /* Mobile menu backdrop */
+        .mobile-menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1998;
+            display: none;
+        }
+        
+        .mobile-menu-backdrop.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Mobile Menu Backdrop -->
+    <div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+    
+    <!-- Ultra Premium Header -->
+    <header class="ultra-header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo-container">
+                <div class="logo-animated" id="logoAnimation">
+                    <!-- Animated logo will be inserted by JavaScript -->
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">TAKUMI & SHQIPONJA</div>
+                    <div class="logo-sub">ULTIMATE LUXURY REAL ESTATE</div>
+                </div>
+            </a>
+            
+            <nav class="nav-main" id="navMain">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#properties">Properties</a></li>
+                    <li><a href="#services">Concierge</a></li>
+                    <li><a href="#about">Fusion</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="#contact" class="btn">Book Consultation</a>
+                </div>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- European Hero Section (from Studio Nordique) -->
+    <section class="european-hero" id="home">
+        <div class="hero-background"></div>
+        
+        <div class="hero-canvas-container">
+            <canvas id="hero-canvas"></canvas>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title" id="heroTitle">Where Japanese Precision Meets Albanian Passion</h1>
+                <p class="hero-subtitle" id="heroSubtitle">Discover the world's most exclusive properties at the intersection of minimalist mastery and bold tradition. Experience architectural harmony that transcends cultural boundaries and redefines luxury living.</p>
+                <div class="hero-btns" id="heroBtns">
+                    <a href="#properties" class="btn">Explore Properties</a>
+                    <a href="#contact" class="btn btn-secondary">Book Private Viewing</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <svg class="hero-office-svg" viewBox="0 0 800 600" id="heroOfficeSvg">
+                    <!-- This SVG will be animated via JavaScript -->
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+
+        <!-- Decorative Lines -->
+        <div class="hero-decorative-line"></div>
+        <div class="hero-decorative-line"></div>
+
+        <!-- Hero shine effect -->
+        <div class="hero-shine"></div>
+    </section>
+
+    <!-- Architectural Masterpiece Showcase -->
+    <section class="architectural-masterpiece" id="about">
+        <div class="container masterpiece-container">
+            <div class="masterpiece-visual">
+                <svg class="architecture-svg-ultimate" viewBox="0 0 900 700" id="architectureSvgUltimate">
+                    <!-- This SVG will be animated via JavaScript -->
+                </svg>
+            </div>
+            <div class="masterpiece-text">
+                <h2 class="fade-in-up-ultimate">Architectural Symphony</h2>
+                <p class="fade-in-up-ultimate">Our properties represent the pinnacle of design, where Japanese minimalism and Albanian craftsmanship converge to create spaces that are both serene and passionate. Each residence tells a story of cultural dialogue.</p>
+                <p class="fade-in-up-ultimate">We curate only properties that embody the highest standards of design, materials, and location. From traditional Kyoto machiya to modernist Tirana villas, each property is a masterpiece.</p>
+                
+                <ul class="features-list-ultimate">
+                    <li class="fade-in-up-ultimate">
+                        <div class="feature-icon-ultimate">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div>
+                            <h4>Sacred Geography</h4>
+                            <p>Properties positioned according to Japanese feng shui and Albanian mountain traditions</p>
+                        </div>
+                    </li>
+                    <li class="fade-in-up-ultimate">
+                        <div class="feature-icon-ultimate">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div>
+                            <h4>Water & Stone Elements</h4>
+                            <p>Incorporating Japanese water gardens with traditional Albanian stone craftsmanship</p>
+                        </div>
+                    </li>
+                    <li class="fade-in-up-ultimate">
+                        <div class="feature-icon-ultimate">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <div>
+                            <h4>Artisan Materials</h4>
+                            <p>Premium materials including Albanian marble, Japanese hinoki wood, and handcrafted tiles</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Properties Gallery -->
+    <section class="luxury-properties-gallery" id="properties">
+        <div class="container">
+            <div class="section-title">
+                <div class="title-decoration">EXCLUSIVE PROPERTIES</div>
+                <h2>Curated Masterpieces</h2>
+                <p>Discover our collection of extraordinary residences that redefine luxury living through Japanese-Albanian design principles</p>
+            </div>
+            
+            <div class="properties-filter-ultimate">
+                <button class="filter-btn-ultimate active" data-filter="all">All Properties</button>
+                <button class="filter-btn-ultimate" data-filter="japan">Japan</button>
+                <button class="filter-btn-ultimate" data-filter="albania">Albania</button>
+                <button class="filter-btn-ultimate" data-filter="fusion">Fusion Design</button>
+                <button class="filter-btn-ultimate" data-filter="luxury">Ultra Luxury</button>
+            </div>
+            
+            <div class="properties-grid-ultimate">
+                <!-- Property 1 -->
+                <div class="property-card-ultimate fade-in-up-ultimate" data-category="fusion luxury">
+                    <div class="property-media-ultimate">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Tokyo-Albanian Fusion Villa" class="property-image-ultimate">
+                        <div class="property-badge-ultimate">Fusion Masterpiece</div>
+                    </div>
+                    <div class="property-content-ultimate">
+                        <div class="property-price-ultimate">¥1,200,000,000</div>
+                        <h3 class="property-title-ultimate">Sakura & Eagle Estate</h3>
+                        <div class="property-location-ultimate">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Minato, Tokyo, Japan
+                        </div>
+                        <p>A revolutionary fusion of Japanese architectural purity and Albanian boldness. This estate features 7 bedrooms, a traditional tea ceremony pavilion, and an Albanian-inspired stone courtyard with mountain views.</p>
+                        
+                        <div class="property-features-ultimate">
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bed"></i>
+                                <span>7 Bedrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bath"></i>
+                                <span>8 Bathrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-vector-square"></i>
+                                <span>850 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card-ultimate fade-in-up-ultimate" data-category="albania luxury">
+                    <div class="property-media-ultimate">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Albanian Coastal Villa" class="property-image-ultimate">
+                        <div class="property-badge-ultimate">Ionian Coast</div>
+                    </div>
+                    <div class="property-content-ultimate">
+                        <div class="property-price-ultimate">€6,500,000</div>
+                        <h3 class="property-title-ultimate">Eagle's Perch Cliff Villa</h3>
+                        <div class="property-location-ultimate">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Vlorë, Albanian Riviera
+                        </div>
+                        <p>Dramatically positioned on the cliffs of the Ionian Sea, this villa blends traditional Albanian stone architecture with Japanese interior minimalism and seamless indoor-outdoor living.</p>
+                        
+                        <div class="property-features-ultimate">
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bed"></i>
+                                <span>5 Bedrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bath"></i>
+                                <span>6 Bathrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-vector-square"></i>
+                                <span>620 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card-ultimate fade-in-up-ultimate" data-category="japan luxury">
+                    <div class="property-media-ultimate">
+                        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2092&q=80" alt="Kyoto Traditional House" class="property-image-ultimate">
+                        <div class="property-badge-ultimate">Heritage Restoration</div>
+                    </div>
+                    <div class="property-content-ultimate">
+                        <div class="property-price-ultimate">¥450,000,000</div>
+                        <h3 class="property-title-ultimate">Kyoto Machiya Heritage</h3>
+                        <div class="property-location-ultimate">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Higashiyama, Kyoto, Japan
+                        </div>
+                        <p>A meticulously restored traditional townhouse with Albanian textile accents and modern amenities. Features a serene inner garden, traditional tea room, and Albanian stone fireplace.</p>
+                        
+                        <div class="property-features-ultimate">
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bed"></i>
+                                <span>4 Bedrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-bath"></i>
+                                <span>4 Bathrooms</span>
+                            </div>
+                            <div class="feature-ultimate">
+                                <i class="fas fa-vector-square"></i>
+                                <span>320 m²</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 80px;">
+                <a href="#contact" class="btn" style="padding: 22px 60px;">View All Properties</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Fusion Experience -->
+    <section class="cultural-fusion-experience" id="fusion">
+        <div class="container fusion-container-ultimate">
+            <div class="fusion-text">
+                <h2 class="fade-in-up-ultimate">Cultural Alchemy</h2>
+                <p class="fade-in-up-ultimate">At Takumi & Shqiponja, we believe true luxury emerges from the harmonious blending of traditions. Our properties are not merely buildings; they are bridges between worlds, creating spaces that honor both Japanese precision and Albanian passion.</p>
+                
+                <div class="fusion-features">
+                    <div class="features-list-ultimate">
+                        <div class="fade-in-up-ultimate" style="display: flex; align-items: flex-start; padding: 30px; background: rgba(255,255,255,0.7); border-radius: 12px; margin-bottom: 30px;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--japan-vermillion), var(--albania-red)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 25px; flex-shrink: 0;">
+                                <i class="fas fa-seedling" style="color: white; font-size: 2rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-dark);">Japanese Wabi-Sabi</h3>
+                                <p style="color: var(--text-secondary); line-height: 1.7;">Embracing imperfection and transience, finding beauty in simplicity, asymmetry, and natural materials that age gracefully.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in-up-ultimate" style="display: flex; align-items: flex-start; padding: 30px; background: rgba(255,255,255,0.7); border-radius: 12px; margin-bottom: 30px;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--japan-indigo), var(--albania-black)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 25px; flex-shrink: 0;">
+                                <i class="fas fa-hands-helping" style="color: white; font-size: 2rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-dark);">Albanian Besa</h3>
+                                <p style="color: var(--text-secondary); line-height: 1.7;">Honoring the sacred Albanian code of honor, trust, and hospitality in every client relationship and architectural detail.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fade-in-up-ultimate" style="display: flex; align-items: flex-start; padding: 30px; background: rgba(255,255,255,0.7); border-radius: 12px;">
+                            <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--japan-gold), var(--albania-gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 25px; flex-shrink: 0;">
+                                <i class="fas fa-balance-scale" style="color: white; font-size: 2rem;"></i>
+                            </div>
+                            <div>
+                                <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--primary-dark);">Harmonious Fusion</h3>
+                                <p style="color: var(--text-secondary); line-height: 1.7;">Creating spaces where minimalist Japanese design meets the warmth, texture, and boldness of Albanian craftsmanship.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="fusion-visual-ultimate">
+                <svg class="fusion-svg-ultimate" viewBox="0 0 900 700" id="fusionSvgUltimate">
+                    <!-- This SVG will be animated via JavaScript -->
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concierge Services -->
+    <section class="concierge-services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <div class="title-decoration">CONCIERGE SERVICES</div>
+                <h2>White-Glove Experience</h2>
+                <p>Our comprehensive suite of services ensures a seamless, luxurious experience from discovery to settlement and beyond</p>
+            </div>
+            
+            <div class="services-grid-ultimate">
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Property Acquisition</h3>
+                    <p class="service-desc-ultimate">End-to-end purchasing services with market analysis, negotiation, and legal assistance in both Japan and Albania, including cross-border transactions.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+                
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-archway"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Architectural Design</h3>
+                    <p class="service-desc-ultimate">Custom design services that blend Japanese and Albanian architectural elements, creating unique, personalized spaces that honor both traditions.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+                
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-passport"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Global Relocation</h3>
+                    <p class="service-desc-ultimate">Comprehensive relocation assistance including visa support, cultural orientation, school placement, and logistics management between Japan and Albania.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+                
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Investment Portfolio</h3>
+                    <p class="service-desc-ultimate">Strategic real estate investment planning and portfolio management across both markets, leveraging our unique cultural and market insights.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+                
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Ultimate Concierge</h3>
+                    <p class="service-desc-ultimate">24/7 personal concierge services including property management, maintenance, and exclusive experiences tailored to your lifestyle.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+                
+                <div class="service-card-ultimate fade-in-up-ultimate">
+                    <div class="service-icon-ultimate">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-title-ultimate">Art & Curation</h3>
+                    <p class="service-desc-ultimate">Curated selection of Japanese and Albanian art, furniture, and decor to complement your property's design and reflect your personal taste.</p>
+                    <a href="#contact" style="margin-top: auto; color: var(--japan-vermillion); text-decoration: none; font-weight: 600; display: inline-block; padding-top: 20px;">Learn More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-ultimate" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <div class="title-decoration">TESTIMONIALS</div>
+                <h2>Client Experiences</h2>
+                <p>Hear from our discerning clients who have discovered the perfect harmony of Japanese and Albanian design</p>
+            </div>
+            
+            <div class="testimonial-slider-ultimate swiper">
+                <div class="swiper-wrapper">
+                    <div class="testimonial-card-ultimate swiper-slide">
+                        <div class="testimonial-content-ultimate">
+                            "Takumi & Shqiponja transformed our vision into reality. They found us a property in Kyoto that perfectly blends Japanese minimalism with Albanian warmth. The attention to detail in merging the two cultures is extraordinary."
+                        </div>
+                        <div class="testimonial-author-ultimate">
+                            <div class="author-avatar-ultimate">
+                                <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client">
+                            </div>
+                            <div class="author-info-ultimate">
+                                <h4>Emilia Tanaka</h4>
+                                <p>Tech Executive, Kyoto</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card-ultimate swiper-slide">
+                        <div class="testimonial-content-ultimate">
+                            "As an Albanian diplomat living in Japan, finding a home that honors both cultures seemed impossible. Takumi & Shqiponja not only found it but helped design the perfect fusion property that feels like both homes at once."
+                        </div>
+                        <div class="testimonial-author-ultimate">
+                            <div class="author-avatar-ultimate">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client">
+                            </div>
+                            <div class="author-info-ultimate">
+                                <h4>Arben Ishikawa</h4>
+                                <p>Diplomat, Tokyo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card-ultimate swiper-slide">
+                        <div class="testimonial-content-ultimate">
+                            "The investment guidance we received for the Albanian Riviera market was invaluable. Their understanding of both Japanese and Albanian real estate dynamics is unmatched. Our portfolio has grown 300% in three years."
+                        </div>
+                        <div class="testimonial-author-ultimate">
+                            <div class="author-avatar-ultimate">
+                                <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Client">
+                            </div>
+                            <div class="author-info-ultimate">
+                                <h4>Yuki Berisha</h4>
+                                <p>Investment Banker, Osaka</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination" style="position: relative; margin-top: 60px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="premium-contact-ultimate" id="contact">
+        <div class="container contact-container-ultimate">
+            <div class="contact-form-container-ultimate fade-in-up-ultimate">
+                <h2 style="margin-bottom: 50px; color: var(--primary-dark); font-size: 3rem;">Begin Your Journey</h2>
+                <form id="contactFormUltimate">
+                    <div class="form-group-ultimate">
+                        <input type="text" class="form-control-ultimate" placeholder="Your Full Name" required>
+                    </div>
+                    <div class="form-group-ultimate">
+                        <input type="email" class="form-control-ultimate" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group-ultimate">
+                        <input type="tel" class="form-control-ultimate" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group-ultimate">
+                        <select class="form-control-ultimate" required>
+                            <option value="" disabled selected>Service Interest</option>
+                            <option value="buying">Property Acquisition</option>
+                            <option value="selling">Property Sale</option>
+                            <option value="investment">Investment Consulting</option>
+                            <option value="design">Architectural Design</option>
+                            <option value="relocation">Relocation Services</option>
+                            <option value="concierge">Ultimate Concierge</option>
+                        </select>
+                    </div>
+                    <div class="form-group-ultimate">
+                        <textarea class="form-control-ultimate" rows="6" placeholder="Tell us about your vision..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%; padding: 25px; font-size: 1.1rem;">Submit Request</button>
+                </form>
+            </div>
+            
+            <div class="contact-info-ultimate">
+                <h3 class="fade-in-up-ultimate">Connect With Our Global Team</h3>
+                <p class="fade-in-up-ultimate" style="margin-bottom: 60px; color: var(--text-secondary); font-size: 1.2rem; line-height: 1.8;">Our bilingual specialists are ready to guide you through every step of your property journey across Japan and Albania. We speak the language of both luxury and culture.</p>
+                
+                <div class="contact-item-ultimate fade-in-up-ultimate">
+                    <div class="contact-icon-ultimate">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Global Offices</h4>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">Tokyo • Kyoto • Osaka • Tirana • Vlorë • Sarandë</p>
+                        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 10px;">By appointment only at our private viewing galleries</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item-ultimate fade-in-up-ultimate">
+                    <div class="contact-icon-ultimate">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Contact Numbers</h4>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">Japan: +81 3-6775-8912</p>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">Albania: +355 4 228 9741</p>
+                        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 10px;">24/7 concierge line available for clients</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item-ultimate fade-in-up-ultimate">
+                    <div class="contact-icon-ultimate">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; margin-bottom: 10px;">Email Address</h4>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">inquiries@takumi-shqiponja.com</p>
+                        <p style="font-size: 1.2rem; color: var(--text-secondary);">concierge@takumi-shqiponja.com</p>
+                        <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 10px;">Response within 24 hours guaranteed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="premium-footer-ultimate">
+        <div class="footer-particles" id="footerParticles"></div>
+        <div class="container">
+            <div class="footer-container-ultimate">
+                <div class="footer-col">
+                    <div class="footer-logo-ultimate">TAKUMI & <span>SHQIPONJA</span></div>
+                    <p class="footer-desc-ultimate">Bridging the aesthetic precision of Japan with the passionate spirit of Albania to create extraordinary living spaces that transcend cultural boundaries and redefine luxury.</p>
+                    <div class="social-links-ultimate">
+                        <a href="#" class="social-link-ultimate"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link-ultimate"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link-ultimate"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link-ultimate"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading-ultimate">Navigation</h4>
+                    <ul class="footer-links-ultimate">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#properties">Properties</a></li>
+                        <li><a href="#services">Concierge Services</a></li>
+                        <li><a href="#fusion">Cultural Fusion</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading-ultimate">Markets</h4>
+                    <ul class="footer-links-ultimate">
+                        <li><a href="#">Tokyo Luxury</a></li>
+                        <li><a href="#">Kyoto Heritage</a></li>
+                        <li><a href="#">Osaka Modern</a></li>
+                        <li><a href="#">Albanian Riviera</a></li>
+                        <li><a href="#">Tirana Urban</a></li>
+                        <li><a href="#">Fusion Masterpieces</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4 class="footer-heading-ultimate">Newsletter</h4>
+                    <p class="footer-desc-ultimate">Subscribe to receive exclusive property listings, market insights, and invitations to private viewings of Japanese-Albanian fusion properties.</p>
+                    <div style="margin-top: 30px;">
+                        <input type="email" class="form-control-ultimate" placeholder="Your Email" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: white; padding: 18px 25px;">
+                        <button class="btn" style="width: 100%; margin-top: 20px; background: linear-gradient(135deg, var(--japan-gold), var(--albania-gold));">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright-ultimate">
+                &copy; 2023 Takumi & Shqiponja Properties. All rights reserved. | Ultimate Luxury Real Estate Beyond Borders
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize GSAP and ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, MotionPathPlugin);
+        
+        // Define animation easings
+        const easeOutExpo = "expo.out";
+        const easeInOutQuart = "power4.inOut";
+        const easeOutBack = "back.out(1.7)";
+        
+        // Mobile detection
+        const isMobile = () => {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 768;
+        };
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMain = document.getElementById('navMain');
+        const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        
+        function openMobileMenu() {
+            navMain.classList.add('active');
+            mobileMenuBackdrop.classList.add('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
+            document.body.style.overflow = 'hidden';
+            
+            // Animate menu items
+            gsap.fromTo(navLinks,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.3, stagger: 0.1 }
+            );
+        }
+        
+        function closeMobileMenu() {
+            navMain.classList.remove('active');
+            mobileMenuBackdrop.classList.remove('active');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+        }
+        
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (navMain.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+        
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+        
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 1100) {
+                    closeMobileMenu();
+                    navMain.style.display = '';
+                }
+            }, 250);
+        });
+        
+        // Animate hero section elements on load
+        window.addEventListener('load', function() {
+            // Create animated logo
+            createAnimatedLogo();
+            
+            // Hero text animation
+            gsap.to("#heroTitle", {
+                duration: 1.5,
+                opacity: 1,
+                y: 0,
+                ease: "power3.out",
+                delay: 0.5
+            });
+            
+            gsap.to("#heroSubtitle", {
+                duration: 1.5,
+                opacity: 1,
+                y: 0,
+                ease: "power3.out",
+                delay: 0.8
+            });
+            
+            gsap.to("#heroBtns", {
+                duration: 1.5,
+                opacity: 1,
+                y: 0,
+                ease: "power3.out",
+                delay: 1.1,
+                stagger: 0.2
+            });
+            
+            // Initialize European canvas animation
+            initEuropeanCanvasAnimation();
+            
+            // Initialize SVG animations
+            initUltimateSvgAnimations();
+            
+            // Initialize property filter
+            initUltimatePropertyFilter();
+            
+            // Initialize testimonial slider
+            initUltimateTestimonialSlider();
+            
+            // Initialize scroll animations
+            initUltimateScrollAnimations();
+            
+            // Initialize contact form
+            initUltimateContactForm();
+            
+            // Initialize footer particles
+            initFooterParticles();
+            
+            // Initialize mobile touch interactions
+            initMobileTouchInteractions();
+        });
+        
+        // Create animated logo
+        function createAnimatedLogo() {
+            const logoContainer = document.getElementById('logoAnimation');
+            const ns = "http://www.w3.org/2000/svg";
+            
+            // Create SVG element
+            const svg = document.createElementNS(ns, "svg");
+            svg.setAttribute("viewBox", "0 0 100 100");
+            svg.setAttribute("width", "100%");
+            svg.setAttribute("height", "100%");
+            
+            // Define gradients
+            const defs = document.createElementNS(ns, "defs");
+            
+            const gradient1 = document.createElementNS(ns, "linearGradient");
+            gradient1.setAttribute("id", "logoGradient1");
+            gradient1.setAttribute("x1", "0%");
+            gradient1.setAttribute("y1", "0%");
+            gradient1.setAttribute("x2", "100%");
+            gradient1.setAttribute("y2", "100%");
+            
+            const stop1 = document.createElementNS(ns, "stop");
+            stop1.setAttribute("offset", "0%");
+            stop1.setAttribute("style", "stop-color:#b5495b;stop-opacity:1");
+            gradient1.appendChild(stop1);
+            
+            const stop2 = document.createElementNS(ns, "stop");
+            stop2.setAttribute("offset", "100%");
+            stop2.setAttribute("style", "stop-color:#da291c;stop-opacity:1");
+            gradient1.appendChild(stop2);
+            
+            const gradient2 = document.createElementNS(ns, "linearGradient");
+            gradient2.setAttribute("id", "logoGradient2");
+            gradient2.setAttribute("x1", "0%");
+            gradient2.setAttribute("y1", "0%");
+            gradient2.setAttribute("x2", "100%");
+            gradient2.setAttribute("y2", "100%");
+            
+            const stop3 = document.createElementNS(ns, "stop");
+            stop3.setAttribute("offset", "0%");
+            stop3.setAttribute("style", "stop-color:#d4af37;stop-opacity:1");
+            gradient2.appendChild(stop3);
+            
+            const stop4 = document.createElementNS(ns, "stop");
+            stop4.setAttribute("offset", "100%");
+            stop4.setAttribute("style", "stop-color:#ffd700;stop-opacity:1");
+            gradient2.appendChild(stop4);
+            
+            defs.appendChild(gradient1);
+            defs.appendChild(gradient2);
+            svg.appendChild(defs);
+            
+            // Create Japanese torii gate
+            const torii = document.createElementNS(ns, "g");
+            torii.setAttribute("id", "torii");
+            
+            // Torii pillars
+            const pillar1 = document.createElementNS(ns, "rect");
+            pillar1.setAttribute("x", "20");
+            pillar1.setAttribute("y", "30");
+            pillar1.setAttribute("width", "8");
+            pillar1.setAttribute("height", "50");
+            pillar1.setAttribute("fill", "url(#logoGradient1)");
+            
+            const pillar2 = document.createElementNS(ns, "rect");
+            pillar2.setAttribute("x", "72");
+            pillar2.setAttribute("y", "30");
+            pillar2.setAttribute("width", "8");
+            pillar2.setAttribute("height", "50");
+            pillar2.setAttribute("fill", "url(#logoGradient1)");
+            
+            // Torii crossbeam
+            const crossbeam = document.createElementNS(ns, "rect");
+            crossbeam.setAttribute("x", "10");
+            crossbeam.setAttribute("y", "25");
+            crossbeam.setAttribute("width", "80");
+            crossbeam.setAttribute("height", "10");
+            crossbeam.setAttribute("fill", "url(#logoGradient2)");
+            
+            // Albanian double-headed eagle
+            const eagle = document.createElementNS(ns, "g");
+            eagle.setAttribute("id", "eagle");
+            eagle.setAttribute("transform", "translate(50, 50)");
+            
+            // Eagle body
+            const eagleBody = document.createElementNS(ns, "path");
+            eagleBody.setAttribute("d", "M -15,-5 L 0,-20 L 15,-5 L 0,25 Z");
+            eagleBody.setAttribute("fill", "url(#logoGradient1)");
+            
+            // Eagle heads
+            const eagleHead1 = document.createElementNS(ns, "path");
+            eagleHead1.setAttribute("d", "M -15,-5 Q -25,-15 -15,-20 Q -5,-15 -15,-5");
+            eagleHead1.setAttribute("fill", "url(#logoGradient2)");
+            
+            const eagleHead2 = document.createElementNS(ns, "path");
+            eagleHead2.setAttribute("d", "M 15,-5 Q 25,-15 15,-20 Q 5,-15 15,-5");
+            eagleHead2.setAttribute("fill", "url(#logoGradient2)");
+            
+            eagle.appendChild(eagleBody);
+            eagle.appendChild(eagleHead1);
+            eagle.appendChild(eagleHead2);
+            
+            torii.appendChild(pillar1);
+            torii.appendChild(pillar2);
+            torii.appendChild(crossbeam);
+            torii.appendChild(eagle);
+            svg.appendChild(torii);
+            
+            logoContainer.appendChild(svg);
+            
+            // Animate the logo
+            gsap.fromTo("#torii", 
+                { scale: 0, rotation: -180 },
+                { scale: 1, rotation: 0, duration: 1.5, ease: easeOutBack, delay: 0.5 }
+            );
+        }
+        
+        // Initialize European canvas animation
+        function initEuropeanCanvasAnimation() {
+            const canvas = document.getElementById('hero-canvas');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas dimensions
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            // Skip heavy canvas on mobile for performance
+            if (isMobile()) {
+                canvas.style.display = 'none';
+                return;
+            }
+            
+            // Particles array
+            let particles = [];
+            const particleCount = isMobile() ? 30 : 80;
+            
+            // Particle class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 3 + 1;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.color = `rgba(181, 73, 91, ${Math.random() * 0.3 + 0.1})`;
+                    this.alpha = Math.random() * 0.5 + 0.2;
+                }
+                
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    // Bounce off edges
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+                
+                draw() {
+                    ctx.fillStyle = this.color;
+                    ctx.globalAlpha = this.alpha;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            // Create particles
+            function initParticles() {
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+            
+            // Connect particles with lines
+            function connectParticles() {
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a; b < particles.length; b++) {
+                        const dx = particles[a].x - particles[b].x;
+                        const dy = particles[a].y - particles[b].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < 100) {
+                            ctx.strokeStyle = `rgba(181, 73, 91, ${0.2 * (1 - distance/100)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+            
+            // Animation loop
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Update and draw particles
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+                
+                connectParticles();
+                
+                requestAnimationFrame(animate);
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                initParticles();
+            });
+            
+            // Initialize and start animation
+            initParticles();
+            animate();
+        }
+        
+        // Initialize ultimate SVG animations
+        function initUltimateSvgAnimations() {
+            // Enhanced Hero Office SVG (from Studio Nordique)
+            const heroSvg = document.getElementById('heroOfficeSvg');
+            if (heroSvg) {
+                const ns = "http://www.w3.org/2000/svg";
+                
+                // Clear existing content
+                heroSvg.innerHTML = '';
+                
+                // Create defs for gradients
+                const defs = document.createElementNS(ns, "defs");
+                
+                // Luxury gradient for main building
+                const mainGradient = document.createElementNS(ns, "linearGradient");
+                mainGradient.setAttribute("id", "mainGradient");
+                mainGradient.setAttribute("x1", "0%");
+                mainGradient.setAttribute("y1", "0%");
+                mainGradient.setAttribute("x2", "100%");
+                mainGradient.setAttribute("y2", "100%");
+                
+                const stop1 = document.createElementNS(ns, "stop");
+                stop1.setAttribute("offset", "0%");
+                stop1.setAttribute("style", "stop-color:#f8f5f0;stop-opacity:1");
+                mainGradient.appendChild(stop1);
+                
+                const stop2 = document.createElementNS(ns, "stop");
+                stop2.setAttribute("offset", "100%");
+                stop2.setAttribute("style", "stop-color:#fffff7;stop-opacity:1");
+                mainGradient.appendChild(stop2);
+                
+                // Gold gradient for details
+                const goldGradient = document.createElementNS(ns, "linearGradient");
+                goldGradient.setAttribute("id", "goldGradient");
+                goldGradient.setAttribute("x1", "0%");
+                goldGradient.setAttribute("y1", "0%");
+                goldGradient.setAttribute("x2", "100%");
+                goldGradient.setAttribute("y2", "100%");
+                
+                const stop3 = document.createElementNS(ns, "stop");
+                stop3.setAttribute("offset", "0%");
+                stop3.setAttribute("style", "stop-color:#d4af37;stop-opacity:1");
+                goldGradient.appendChild(stop3);
+                
+                const stop4 = document.createElementNS(ns, "stop");
+                stop4.setAttribute("offset", "100%");
+                stop4.setAttribute("style", "stop-color:#ffd700;stop-opacity:1");
+                goldGradient.appendChild(stop4);
+                
+                // Vermillion gradient
+                const vermillionGradient = document.createElementNS(ns, "linearGradient");
+                vermillionGradient.setAttribute("id", "vermillionGradient");
+                vermillionGradient.setAttribute("x1", "0%");
+                vermillionGradient.setAttribute("y1", "0%");
+                vermillionGradient.setAttribute("x2", "100%");
+                vermillionGradient.setAttribute("y2", "100%");
+                
+                const stop5 = document.createElementNS(ns, "stop");
+                stop5.setAttribute("offset", "0%");
+                stop5.setAttribute("style", "stop-color:#b5495b;stop-opacity:1");
+                vermillionGradient.appendChild(stop5);
+                
+                const stop6 = document.createElementNS(ns, "stop");
+                stop6.setAttribute("offset", "100%");
+                stop6.setAttribute("style", "stop-color:#da291c;stop-opacity:0.8");
+                vermillionGradient.appendChild(stop6);
+                
+                defs.appendChild(mainGradient);
+                defs.appendChild(goldGradient);
+                defs.appendChild(vermillionGradient);
+                heroSvg.appendChild(defs);
+                
+                // Create main group
+                const officeGroup = document.createElementNS(ns, "g");
+                officeGroup.setAttribute("id", "heroOfficeGroup");
+                
+                // Modern luxury villa foundation
+                const villaFoundation = document.createElementNS(ns, "rect");
+                villaFoundation.setAttribute("x", "180");
+                villaFoundation.setAttribute("y", "320");
+                villaFoundation.setAttribute("width", "440");
+                villaFoundation.setAttribute("height", "260");
+                villaFoundation.setAttribute("rx", "15");
+                villaFoundation.setAttribute("fill", "url(#mainGradient)");
+                villaFoundation.setAttribute("stroke", "#1a3a40");
+                villaFoundation.setAttribute("stroke-width", "3");
+                
+                // Floating roof structure
+                const floatingRoof = document.createElementNS(ns, "polygon");
+                floatingRoof.setAttribute("points", "140,320 660,320 400,200");
+                floatingRoof.setAttribute("fill", "url(#vermillionGradient)");
+                floatingRoof.setAttribute("stroke", "#0a0a0a");
+                floatingRoof.setAttribute("stroke-width", "3");
+                floatingRoof.setAttribute("opacity", "0.9");
+                
+                // Roof accent lines
+                for (let i = 0; i < 3; i++) {
+                    const roofAccent = document.createElementNS(ns, "line");
+                    roofAccent.setAttribute("x1", 140 + i * 100);
+                    roofAccent.setAttribute("y1", 320);
+                    roofAccent.setAttribute("x2", 400);
+                    roofAccent.setAttribute("y2", 200 + i * 10);
+                    roofAccent.setAttribute("stroke", "url(#goldGradient)");
+                    roofAccent.setAttribute("stroke-width", "2");
+                    roofAccent.setAttribute("opacity", "0.6");
+                    officeGroup.appendChild(roofAccent);
+                }
+                
+                // Grand entrance door
+                const grandDoor = document.createElementNS(ns, "rect");
+                grandDoor.setAttribute("x", "360");
+                grandDoor.setAttribute("y", "420");
+                grandDoor.setAttribute("width", "80");
+                grandDoor.setAttribute("height", "160");
+                grandDoor.setAttribute("rx", "8");
+                grandDoor.setAttribute("fill", "url(#goldGradient)");
+                grandDoor.setAttribute("stroke", "#8b4513");
+                grandDoor.setAttribute("stroke-width", "3");
+                
+                // Door handle
+                const doorHandle = document.createElementNS(ns, "circle");
+                doorHandle.setAttribute("cx", "425");
+                doorHandle.setAttribute("cy", "500");
+                doorHandle.setAttribute("r", "6");
+                doorHandle.setAttribute("fill", "#1a3a40");
+                
+                // Large panoramic windows
+                const leftWindow = document.createElementNS(ns, "rect");
+                leftWindow.setAttribute("x", "220");
+                leftWindow.setAttribute("y", "360");
+                leftWindow.setAttribute("width", "100");
+                leftWindow.setAttribute("height", "120");
+                leftWindow.setAttribute("rx", "8");
+                leftWindow.setAttribute("fill", "#3d85c6");
+                leftWindow.setAttribute("stroke", "#1a3a40");
+                leftWindow.setAttribute("stroke-width", "3");
+                leftWindow.setAttribute("opacity", "0.8");
+                
+                const rightWindow = document.createElementNS(ns, "rect");
+                rightWindow.setAttribute("x", "480");
+                rightWindow.setAttribute("y", "360");
+                rightWindow.setAttribute("width", "100");
+                rightWindow.setAttribute("height", "120");
+                rightWindow.setAttribute("rx", "8");
+                rightWindow.setAttribute("fill", "#3d85c6");
+                rightWindow.setAttribute("stroke", "#1a3a40");
+                rightWindow.setAttribute("stroke-width", "3");
+                rightWindow.setAttribute("opacity", "0.8");
+                
+                // Window details - grids
+                for (let i = 1; i < 3; i++) {
+                    const windowGridV1 = document.createElementNS(ns, "line");
+                    windowGridV1.setAttribute("x1", 220 + i * 33);
+                    windowGridV1.setAttribute("y1", "360");
+                    windowGridV1.setAttribute("x2", 220 + i * 33);
+                    windowGridV1.setAttribute("y2", "480");
+                    windowGridV1.setAttribute("stroke", "#1a3a40");
+                    windowGridV1.setAttribute("stroke-width", "1.5");
+                    officeGroup.appendChild(windowGridV1);
+                    
+                    const windowGridH1 = document.createElementNS(ns, "line");
+                    windowGridH1.setAttribute("x1", "220");
+                    windowGridH1.setAttribute("y1", 360 + i * 40);
+                    windowGridH1.setAttribute("x2", "320");
+                    windowGridH1.setAttribute("y2", 360 + i * 40);
+                    windowGridH1.setAttribute("stroke", "#1a3a40");
+                    windowGridH1.setAttribute("stroke-width", "1.5");
+                    officeGroup.appendChild(windowGridH1);
+                }
+                
+                // Zen garden in front
+                const zenGarden = document.createElementNS(ns, "path");
+                zenGarden.setAttribute("d", "M 150 580 L 650 580 Q 700 560 650 530 Q 600 510 150 530 Z");
+                zenGarden.setAttribute("fill", "#6b8e23");
+                zenGarden.setAttribute("opacity", "0.8");
+                
+                // Stone path
+                for (let i = 0; i < 8; i++) {
+                    const stone = document.createElementNS(ns, "ellipse");
+                    stone.setAttribute("cx", 200 + i * 60);
+                    stone.setAttribute("cy", 560 + Math.sin(i) * 15);
+                    stone.setAttribute("rx", "20");
+                    stone.setAttribute("ry", "12");
+                    stone.setAttribute("fill", "#8a8d8f");
+                    stone.setAttribute("opacity", "0.7");
+                    officeGroup.appendChild(stone);
+                }
+                
+                // Japanese Sakura tree on left
+                const sakuraTrunk = document.createElementNS(ns, "path");
+                sakuraTrunk.setAttribute("d", "M 80 500 Q 90 400 120 350 Q 140 320 100 300");
+                sakuraTrunk.setAttribute("stroke", "#8b4513");
+                sakuraTrunk.setAttribute("stroke-width", "12");
+                sakuraTrunk.setAttribute("fill", "none");
+                sakuraTrunk.setAttribute("stroke-linecap", "round");
+                
+                // Sakura blossoms
+                for (let i = 0; i < 25; i++) {
+                    const angle = (i / 25) * Math.PI * 2;
+                    const distance = 40 + Math.random() * 80;
+                    const x = 100 + Math.cos(angle) * distance;
+                    const y = 350 + Math.sin(angle) * distance;
+                    
+                    const blossom = document.createElementNS(ns, "circle");
+                    blossom.setAttribute("cx", x);
+                    blossom.setAttribute("cy", y);
+                    blossom.setAttribute("r", Math.random() * 8 + 4);
+                    blossom.setAttribute("fill", "#ffb7c5");
+                    blossom.setAttribute("opacity", Math.random() * 0.5 + 0.3);
+                    officeGroup.appendChild(blossom);
+                }
+                
+                // Albanian stone wall on right
+                const stoneWall = document.createElementNS(ns, "path");
+                stoneWall.setAttribute("d", "M 680 500 L 720 480 L 700 580 L 660 600 Z");
+                stoneWall.setAttribute("fill", "#8a8d8f");
+                stoneWall.setAttribute("stroke", "#666");
+                stoneWall.setAttribute("stroke-width", "2");
+                
+                // Stone wall details
+                for (let i = 0; i < 6; i++) {
+                    for (let j = 0; j < 4; j++) {
+                        const stoneBlock = document.createElementNS(ns, "rect");
+                        stoneBlock.setAttribute("x", 680 + i * 7);
+                        stoneBlock.setAttribute("y", 500 + j * 25);
+                        stoneBlock.setAttribute("width", "6");
+                        stoneBlock.setAttribute("height", "20");
+                        stoneBlock.setAttribute("fill", j % 2 === 0 ? "#a0a3a5" : "#8a8d8f");
+                        stoneBlock.setAttribute("stroke", "#666");
+                        stoneBlock.setAttribute("stroke-width", "0.5");
+                        officeGroup.appendChild(stoneBlock);
+                    }
+                }
+                
+                // Eagle sculpture (Albanian element)
+                const eagleSculpture = document.createElementNS(ns, "g");
+                eagleSculpture.setAttribute("transform", "translate(720, 450)");
+                
+                const eagleBody = document.createElementNS(ns, "path");
+                eagleBody.setAttribute("d", "M -15 -10 L 0 -25 L 15 -10 L 0 20 Z");
+                eagleBody.setAttribute("fill", "#da291c");
+                eagleBody.setAttribute("stroke", "#0a0a0a");
+                eagleBody.setAttribute("stroke-width", "2");
+                
+                const eagleHeadLeft = document.createElementNS(ns, "path");
+                eagleHeadLeft.setAttribute("d", "M -15 -10 Q -25 -20 -20 -30 Q -10 -25 -15 -10");
+                eagleHeadLeft.setAttribute("fill", "#ffd700");
+                
+                const eagleHeadRight = document.createElementNS(ns, "path");
+                eagleHeadRight.setAttribute("d", "M 15 -10 Q 25 -20 20 -30 Q 10 -25 15 -10");
+                eagleHeadRight.setAttribute("fill", "#ffd700");
+                
+                eagleSculpture.appendChild(eagleBody);
+                eagleSculpture.appendChild(eagleHeadLeft);
+                eagleSculpture.appendChild(eagleHeadRight);
+                
+                // Reflection pool
+                const reflectionPool = document.createElementNS(ns, "ellipse");
+                reflectionPool.setAttribute("cx", "400");
+                reflectionPool.setAttribute("cy", "620");
+                reflectionPool.setAttribute("rx", "120");
+                reflectionPool.setAttribute("ry", "30");
+                reflectionPool.setAttribute("fill", "#3d85c6");
+                reflectionPool.setAttribute("opacity", "0.4");
+                reflectionPool.setAttribute("filter", "blur(2px)");
+                
+                // Water ripples
+                for (let i = 1; i <= 3; i++) {
+                    const ripple = document.createElementNS(ns, "ellipse");
+                    ripple.setAttribute("cx", "400");
+                    ripple.setAttribute("cy", "620");
+                    ripple.setAttribute("rx", 120 - i * 20);
+                    ripple.setAttribute("ry", 30 - i * 5);
+                    ripple.setAttribute("fill", "none");
+                    ripple.setAttribute("stroke", "#fffff7");
+                    ripple.setAttribute("stroke-width", "1");
+                    ripple.setAttribute("opacity", "0.3");
+                    ripple.setAttribute("stroke-dasharray", "5,5");
+                    officeGroup.appendChild(ripple);
+                }
+                
+                // Assemble all elements
+                officeGroup.appendChild(zenGarden);
+                officeGroup.appendChild(reflectionPool);
+                officeGroup.appendChild(sakuraTrunk);
+                officeGroup.appendChild(stoneWall);
+                officeGroup.appendChild(eagleSculpture);
+                officeGroup.appendChild(villaFoundation);
+                officeGroup.appendChild(floatingRoof);
+                officeGroup.appendChild(grandDoor);
+                officeGroup.appendChild(doorHandle);
+                officeGroup.appendChild(leftWindow);
+                officeGroup.appendChild(rightWindow);
+                
+                heroSvg.appendChild(officeGroup);
+                
+                // Enhanced animations
+                gsap.fromTo([villaFoundation, floatingRoof], 
+                    { y: 150, opacity: 0, scale: 0.9 },
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        scale: 1, 
+                        duration: 1.8, 
+                        delay: 0.3, 
+                        ease: "power3.out",
+                        stagger: 0.2
+                    }
+                );
+                
+                gsap.fromTo([grandDoor, leftWindow, rightWindow], 
+                    { scale: 0, opacity: 0, rotationY: 90 },
+                    { 
+                        scale: 1, 
+                        opacity: 1, 
+                        rotationY: 0, 
+                        duration: 1.5, 
+                        delay: 0.8, 
+                        stagger: 0.15, 
+                        ease: "back.out(1.7)"
+                    }
+                );
+                
+                gsap.fromTo([sakuraTrunk, stoneWall, eagleSculpture], 
+                    { x: 100, opacity: 0 },
+                    { 
+                        x: 0, 
+                        opacity: 1, 
+                        duration: 1.5, 
+                        delay: 1.2, 
+                        stagger: 0.1, 
+                        ease: "power3.out"
+                    }
+                );
+                
+                // Animate sakura blossoms individually
+                gsap.fromTo(officeGroup.querySelectorAll("circle[fill='#ffb7c5']"), 
+                    { scale: 0, opacity: 0 },
+                    { 
+                        scale: 1, 
+                        opacity: () => Math.random() * 0.5 + 0.3, 
+                        duration: 1.2, 
+                        delay: 1.4, 
+                        stagger: 0.02, 
+                        ease: "back.out(1.2)"
+                    }
+                );
+                
+                // Animate water ripples
+                gsap.fromTo(officeGroup.querySelectorAll("ellipse[stroke='#fffff7']"), 
+                    { scale: 0.5, opacity: 0 },
+                    { 
+                        scale: 1, 
+                        opacity: 0.3, 
+                        duration: 2, 
+                        delay: 1.6, 
+                        stagger: 0.2, 
+                        repeat: -1, 
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    }
+                );
+                
+                // Add continuous subtle floating animation to the entire building
+                if (!isMobile()) {
+                    gsap.to(officeGroup, {
+                        y: -10,
+                        duration: 4,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut"
+                    });
+                }
+            }
+            
+            // Architecture SVG animation
+            const archSvg = document.getElementById('architectureSvgUltimate');
+            if (archSvg) {
+                // Create a complex SVG for architectural showcase
+                const ns = "http://www.w3.org/2000/svg";
+                
+                // Clear existing content
+                archSvg.innerHTML = '';
+                
+                // Create main SVG group
+                const archGroup = document.createElementNS(ns, "g");
+                archGroup.setAttribute("id", "archGroupUltimate");
+                
+                // Add Japanese pagoda
+                const japanesePagoda = document.createElementNS(ns, "g");
+                japanesePagoda.setAttribute("id", "japanesePagoda");
+                japanesePagoda.setAttribute("transform", "translate(150, 250)");
+                
+                // Pagoda base
+                const pagodaBase = document.createElementNS(ns, "rect");
+                pagodaBase.setAttribute("x", "0");
+                pagodaBase.setAttribute("y", "0");
+                pagodaBase.setAttribute("width", "180");
+                pagodaBase.setAttribute("height", "200");
+                pagodaBase.setAttribute("fill", "#f8f5f0");
+                pagodaBase.setAttribute("stroke", "#b5495b");
+                pagodaBase.setAttribute("stroke-width", "4");
+                
+                // Pagoda roofs
+                for (let i = 0; i < 3; i++) {
+                    const roof = document.createElementNS(ns, "polygon");
+                    const roofY = i * 50;
+                    roof.setAttribute("points", `${-20 + i*10},${roofY} ${200 - i*10},${roofY} ${220 - i*10},${roofY+30} ${-40 + i*10},${roofY+30}`);
+                    roof.setAttribute("fill", i % 2 === 0 ? "#1a3a40" : "#264348");
+                    roof.setAttribute("stroke", "#0a0a0a");
+                    roof.setAttribute("stroke-width", "2");
+                    japanesePagoda.appendChild(roof);
+                }
+                
+                // Windows
+                for (let i = 0; i < 2; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        const window = document.createElementNS(ns, "rect");
+                        window.setAttribute("x", 30 + i * 70);
+                        window.setAttribute("y", 40 + j * 50);
+                        window.setAttribute("width", "40");
+                        window.setAttribute("height", "30");
+                        window.setAttribute("fill", "#c5a572");
+                        window.setAttribute("stroke", "#8b4513");
+                        window.setAttribute("stroke-width", "2");
+                        japanesePagoda.appendChild(window);
+                    }
+                }
+                
+                japanesePagoda.appendChild(pagodaBase);
+                
+                // Add Albanian castle
+                const albanianCastle = document.createElementNS(ns, "g");
+                albanianCastle.setAttribute("id", "albanianCastle");
+                albanianCastle.setAttribute("transform", "translate(550, 200)");
+                
+                // Castle base
+                const castleBase = document.createElementNS(ns, "rect");
+                castleBase.setAttribute("x", "0");
+                castleBase.setAttribute("y", "0");
+                castleBase.setAttribute("width", "250");
+                castleBase.setAttribute("height", "250");
+                castleBase.setAttribute("fill", "#f0f0f0");
+                castleBase.setAttribute("stroke", "#da291c");
+                castleBase.setAttribute("stroke-width", "4");
+                
+                // Castle towers
+                const leftTower = document.createElementNS(ns, "rect");
+                leftTower.setAttribute("x", "-30");
+                leftTower.setAttribute("y", "-50");
+                leftTower.setAttribute("width", "60");
+                leftTower.setAttribute("height", "100");
+                leftTower.setAttribute("fill", "#8a8d8f");
+                leftTower.setAttribute("stroke", "#666");
+                leftTower.setAttribute("stroke-width", "3");
+                
+                const rightTower = document.createElementNS(ns, "rect");
+                rightTower.setAttribute("x", "220");
+                rightTower.setAttribute("y", "-50");
+                rightTower.setAttribute("width", "60");
+                rightTower.setAttribute("height", "100");
+                rightTower.setAttribute("fill", "#8a8d8f");
+                rightTower.setAttribute("stroke", "#666");
+                rightTower.setAttribute("stroke-width", "3");
+                
+                // Castle battlements
+                const battlements = document.createElementNS(ns, "path");
+                battlements.setAttribute("d", "M 0,0 L 250,0 M 0,0 L -30,-50 M 250,0 L 280,-50");
+                battlements.setAttribute("stroke", "#0a0a0a");
+                battlements.setAttribute("stroke-width", "4");
+                battlements.setAttribute("fill", "none");
+                
+                // Stone details
+                const stoneDetails = document.createElementNS(ns, "g");
+                for (let i = 0; i < 10; i++) {
+                    for (let j = 0; j < 5; j++) {
+                        const stone = document.createElementNS(ns, "rect");
+                        stone.setAttribute("x", 20 + i * 22);
+                        stone.setAttribute("y", 20 + j * 45);
+                        stone.setAttribute("width", "15");
+                        stone.setAttribute("height", "35");
+                        stone.setAttribute("fill", j % 2 === 0 ? "#8a8d8f" : "#a0a3a5");
+                        stone.setAttribute("stroke", "#666");
+                        stone.setAttribute("stroke-width", "1");
+                        stone.setAttribute("rx", "3");
+                        stoneDetails.appendChild(stone);
+                    }
+                }
+                
+                albanianCastle.appendChild(castleBase);
+                albanianCastle.appendChild(leftTower);
+                albanianCastle.appendChild(rightTower);
+                albanianCastle.appendChild(battlements);
+                albanianCastle.appendChild(stoneDetails);
+                
+                // Add bridge between structures (fusion element)
+                const bridge = document.createElementNS(ns, "g");
+                bridge.setAttribute("id", "fusionBridge");
+                
+                const bridgePath = document.createElementNS(ns, "path");
+                bridgePath.setAttribute("d", "M 330 350 Q 450 250 570 350");
+                bridgePath.setAttribute("stroke", "#c5a572");
+                bridgePath.setAttribute("stroke-width", "12");
+                bridgePath.setAttribute("fill", "none");
+                bridgePath.setAttribute("stroke-linecap", "round");
+                
+                // Bridge supports
+                for (let i = 0; i < 5; i++) {
+                    const support = document.createElementNS(ns, "line");
+                    const x = 330 + i * 60;
+                    const y = 350 + (i % 2 === 0 ? 30 : 40);
+                    support.setAttribute("x1", x);
+                    support.setAttribute("y1", 350);
+                    support.setAttribute("x2", x);
+                    support.setAttribute("y2", y);
+                    support.setAttribute("stroke", "#8b4513");
+                    support.setAttribute("stroke-width", "4");
+                    bridge.appendChild(support);
+                }
+                
+                bridge.appendChild(bridgePath);
+                
+                archGroup.appendChild(japanesePagoda);
+                archGroup.appendChild(albanianCastle);
+                archGroup.appendChild(bridge);
+                
+                archSvg.appendChild(archGroup);
+                
+                // Animate the structures
+                gsap.fromTo(japanesePagoda, 
+                    { opacity: 0, x: -100, scale: 0.8 },
+                    { opacity: 1, x: 0, scale: 1, duration: 1.8, ease: easeOutBack, scrollTrigger: {
+                        trigger: ".architectural-masterpiece",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                gsap.fromTo(albanianCastle, 
+                    { opacity: 0, x: 100, scale: 0.8 },
+                    { opacity: 1, x: 0, scale: 1, duration: 1.8, delay: 0.3, ease: easeOutBack, scrollTrigger: {
+                        trigger: ".architectural-masterpiece",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                gsap.fromTo(bridgePath, 
+                    { strokeDasharray: "0, 1000" },
+                    { strokeDasharray: "1000, 1000", duration: 2.5, delay: 0.8, ease: "power2.out", scrollTrigger: {
+                        trigger: ".architectural-masterpiece",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                // Animate bridge supports
+                gsap.fromTo(bridge.querySelectorAll("line"), 
+                    { scaleY: 0, transformOrigin: "top center" },
+                    { scaleY: 1, duration: 1.5, stagger: 0.1, delay: 1.2, ease: "back.out(1.7)", scrollTrigger: {
+                        trigger: ".architectural-masterpiece",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+            }
+            
+            // Cultural Fusion SVG animation
+            const fusionSvg = document.getElementById('fusionSvgUltimate');
+            if (fusionSvg) {
+                // Create fusion visualization
+                const ns = "http://www.w3.org/2000/svg";
+                
+                // Clear existing content
+                fusionSvg.innerHTML = '';
+                
+                // Create main group
+                const fusionGroup = document.createElementNS(ns, "g");
+                fusionGroup.setAttribute("id", "fusionGroupUltimate");
+                
+                // Japanese enso circle
+                const ensoCircle = document.createElementNS(ns, "circle");
+                ensoCircle.setAttribute("cx", "250");
+                ensoCircle.setAttribute("cy", "350");
+                ensoCircle.setAttribute("r", "150");
+                ensoCircle.setAttribute("fill", "none");
+                ensoCircle.setAttribute("stroke", "#b5495b");
+                ensoCircle.setAttribute("stroke-width", "10");
+                ensoCircle.setAttribute("stroke-dasharray", "15, 15");
+                ensoCircle.setAttribute("stroke-linecap", "round");
+                
+                // Sakura petals inside enso
+                for (let i = 0; i < 12; i++) {
+                    const angle = (i / 12) * Math.PI * 2;
+                    const x = 250 + Math.cos(angle) * 100;
+                    const y = 350 + Math.sin(angle) * 100;
+                    
+                    const petal = document.createElementNS(ns, "path");
+                    petal.setAttribute("d", "M " + x + " " + y + " Q " + (x + Math.cos(angle + 0.5) * 20) + " " + (y + Math.sin(angle + 0.5) * 20) + " " + (x + Math.cos(angle) * 40) + " " + (y + Math.sin(angle) * 40));
+                    petal.setAttribute("stroke", "#ffb7c5");
+                    petal.setAttribute("stroke-width", "4");
+                    petal.setAttribute("fill", "none");
+                    petal.setAttribute("opacity", "0.7");
+                    
+                    fusionGroup.appendChild(petal);
+                }
+                
+                // Albanian double-headed eagle
+                const albanianEagle = document.createElementNS(ns, "g");
+                albanianEagle.setAttribute("id", "albanianEagle");
+                albanianEagle.setAttribute("transform", "translate(650, 350)");
+                
+                // Eagle body
+                const eagleBody = document.createElementNS(ns, "path");
+                eagleBody.setAttribute("d", "M -60,-40 L 0,-100 L 60,-40 L 0,80 Z");
+                eagleBody.setAttribute("fill", "#da291c");
+                eagleBody.setAttribute("stroke", "#0a0a0a");
+                eagleBody.setAttribute("stroke-width", "4");
+                
+                // Eagle heads
+                const eagleHeadLeft = document.createElementNS(ns, "path");
+                eagleHeadLeft.setAttribute("d", "M -60,-40 Q -100,-80 -80,-120 Q -40,-80 -60,-40");
+                eagleHeadLeft.setAttribute("fill", "#ffd700");
+                eagleHeadLeft.setAttribute("stroke", "#0a0a0a");
+                eagleHeadLeft.setAttribute("stroke-width", "3");
+                
+                const eagleHeadRight = document.createElementNS(ns, "path");
+                eagleHeadRight.setAttribute("d", "M 60,-40 Q 100,-80 80,-120 Q 40,-80 60,-40");
+                eagleHeadRight.setAttribute("fill", "#ffd700");
+                eagleHeadRight.setAttribute("stroke", "#0a0a0a");
+                eagleHeadRight.setAttribute("stroke-width", "3");
+                
+                albanianEagle.appendChild(eagleBody);
+                albanianEagle.appendChild(eagleHeadLeft);
+                albanianEagle.appendChild(eagleHeadRight);
+                
+                // Connecting energy lines
+                const connectingLines = document.createElementNS(ns, "g");
+                for (let i = 0; i < 16; i++) {
+                    const line = document.createElementNS(ns, "path");
+                    const angle = (i / 16) * Math.PI * 2;
+                    const x1 = 250 + Math.cos(angle) * 150;
+                    const y1 = 350 + Math.sin(angle) * 150;
+                    const x2 = 650 + Math.cos(angle) * 120;
+                    const y2 = 350 + Math.sin(angle) * 120;
+                    
+                    // Create curved path
+                    const midX = 450;
+                    const midY = 350 + Math.sin(angle) * 50;
+                    
+                    line.setAttribute("d", `M ${x1} ${y1} Q ${midX} ${midY} ${x2} ${y2}`);
+                    line.setAttribute("stroke", i % 2 === 0 ? "#c5a572" : "#d4af37");
+                    line.setAttribute("stroke-width", "2");
+                    line.setAttribute("opacity", "0.6");
+                    line.setAttribute("fill", "none");
+                    
+                    connectingLines.appendChild(line);
+                }
+                
+                fusionGroup.appendChild(ensoCircle);
+                fusionGroup.appendChild(albanianEagle);
+                fusionGroup.appendChild(connectingLines);
+                
+                fusionSvg.appendChild(fusionGroup);
+                
+                // Animate fusion elements
+                gsap.fromTo(ensoCircle, 
+                    { scale: 0, opacity: 0, rotation: -180 },
+                    { scale: 1, opacity: 1, rotation: 0, duration: 2, ease: easeOutBack, scrollTrigger: {
+                        trigger: ".cultural-fusion-experience",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                gsap.fromTo(albanianEagle, 
+                    { scale: 0, opacity: 0, rotation: 180 },
+                    { scale: 1, opacity: 1, rotation: 0, duration: 2, delay: 0.3, ease: easeOutBack, scrollTrigger: {
+                        trigger: ".cultural-fusion-experience",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                // Animate sakura petals
+                gsap.fromTo(fusionGroup.querySelectorAll("path[stroke='#ffb7c5']"), 
+                    { scale: 0, opacity: 0 },
+                    { scale: 1, opacity: 0.7, duration: 1.5, stagger: 0.05, delay: 0.5, ease: "back.out(1.7)", scrollTrigger: {
+                        trigger: ".cultural-fusion-experience",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+                
+                // Animate connecting lines with draw effect
+                gsap.fromTo(connectingLines.children, 
+                    { strokeDasharray: "0, 1000" },
+                    { strokeDasharray: "1000, 1000", duration: 2, stagger: 0.03, delay: 0.8, ease: "power2.out", scrollTrigger: {
+                        trigger: ".cultural-fusion-experience",
+                        start: "top 70%",
+                        toggleActions: "play none none none"
+                    }}
+                );
+            }
+        }
+        
+        // Initialize ultimate property filter
+        function initUltimatePropertyFilter() {
+            const filterBtns = document.querySelectorAll('.filter-btn-ultimate');
+            const propertyCards = document.querySelectorAll('.property-card-ultimate');
+            
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter properties with animation
+                    propertyCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category').includes(filter)) {
+                            gsap.to(card, {
+                                opacity: 1,
+                                scale: 1,
+                                y: 0,
+                                duration: 0.7,
+                                display: 'block',
+                                ease: easeOutBack
+                            });
+                        } else {
+                            gsap.to(card, {
+                                opacity: 0,
+                                scale: 0.8,
+                                y: 50,
+                                duration: 0.5,
+                                onComplete: () => {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        }
+        
+        // Initialize ultimate testimonial slider
+        function initUltimateTestimonialSlider() {
+            const testimonialSlider = new Swiper('.testimonial-slider-ultimate', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                speed: 1000,
+            });
+        }
+        
+        // Initialize ultimate scroll animations
+        function initUltimateScrollAnimations() {
+            // Animate elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in-up-ultimate');
+            
+            fadeElements.forEach(el => {
+                gsap.fromTo(el, 
+                    { opacity: 0, y: 100 },
+                    { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 1.5,
+                        ease: easeOutExpo,
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 85%",
+                            toggleActions: "play none none none",
+                            markers: false
+                        }
+                    }
+                );
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.ultra-header');
+            
+            ScrollTrigger.create({
+                start: "top -100",
+                onUpdate: (self) => {
+                    if (self.direction === 1 && self.scroll() > 100) {
+                        gsap.to(header, { y: -100, duration: 0.5, ease: "power2.out" });
+                    } else {
+                        gsap.to(header, { y: 0, duration: 0.5, ease: "power2.out" });
+                    }
+                    
+                    // Add background when scrolled
+                    if (self.scroll() > 50) {
+                        header.style.background = "rgba(255, 255, 255, 0.98)";
+                        header.style.backdropFilter = "blur(20px)";
+                    } else {
+                        header.style.background = "rgba(255, 255, 255, 0.95)";
+                        header.style.backdropFilter = "blur(20px)";
+                    }
+                }
+            });
+            
+            // Parallax effect for sections (disable on mobile)
+            if (!isMobile()) {
+                gsap.utils.toArray('.masterpiece-visual, .fusion-visual-ultimate').forEach(section => {
+                    gsap.to(section, {
+                        yPercent: 20,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top bottom",
+                            end: "bottom top",
+                            scrub: true
+                        }
+                    });
+                });
+            }
+        }
+        
+        // Initialize ultimate contact form
+        function initUltimateContactForm() {
+            const contactForm = document.getElementById('contactFormUltimate');
+            
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show success animation
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.textContent;
+                const originalBackground = submitBtn.style.background;
+                
+                submitBtn.textContent = "Request Sent Successfully!";
+                submitBtn.style.background = "linear-gradient(135deg, #4CAF50, #2E7D32)";
+                submitBtn.style.cursor = "default";
+                
+                // Create confetti effect
+                createConfetti();
+                
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.style.background = originalBackground;
+                    submitBtn.style.cursor = "pointer";
+                    contactForm.reset();
+                }, 3000);
+            });
+            
+            // Form input animations
+            const formInputs = document.querySelectorAll('.form-control-ultimate');
+            formInputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    gsap.to(this, { scale: 1.02, duration: 0.3, ease: "power2.out" });
+                });
+                
+                input.addEventListener('blur', function() {
+                    gsap.to(this, { scale: 1, duration: 0.3, ease: "power2.out" });
+                });
+            });
+        }
+        
+        // Create confetti effect
+        function createConfetti() {
+            const confettiContainer = document.createElement('div');
+            confettiContainer.style.position = 'fixed';
+            confettiContainer.style.top = '0';
+            confettiContainer.style.left = '0';
+            confettiContainer.style.width = '100%';
+            confettiContainer.style.height = '100%';
+            confettiContainer.style.pointerEvents = 'none';
+            confettiContainer.style.zIndex = '9999';
+            
+            document.body.appendChild(confettiContainer);
+            
+            // Create confetti pieces
+            const colors = ['#b5495b', '#da291c', '#d4af37', '#ffd700', '#1a3a40', '#0a0a0a'];
+            const confettiCount = isMobile() ? 80 : 150;
+            
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.style.position = 'absolute';
+                confetti.style.width = Math.random() * 15 + 5 + 'px';
+                confetti.style.height = Math.random() * 15 + 5 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.top = '-50px';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.opacity = '0.9';
+                confetti.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+                
+                confettiContainer.appendChild(confetti);
+                
+                // Animate confetti
+                gsap.to(confetti, {
+                    y: window.innerHeight + 100,
+                    x: Math.random() * 200 - 100,
+                    rotation: Math.random() * 720,
+                    duration: Math.random() * 3 + 2,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        confetti.remove();
+                        if (confettiContainer.children.length === 0) {
+                            confettiContainer.remove();
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Initialize footer particles
+        function initFooterParticles() {
+            const container = document.getElementById('footerParticles');
+            if (!container) return;
+            
+            const particleCount = isMobile() ? 25 : 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                container.appendChild(particle);
+                
+                // Animate particle
+                gsap.to(particle, {
+                    y: '-=100',
+                    x: Math.random() * 40 - 20,
+                    duration: Math.random() * 10 + 10,
+                    repeat: -1,
+                    ease: "none",
+                    delay: Math.random() * 5
+                });
+            }
+        }
+        
+        // Initialize mobile touch interactions
+        function initMobileTouchInteractions() {
+            // Mobile touch feedback for buttons
+            const buttons = document.querySelectorAll('.btn, .filter-btn-ultimate');
+            buttons.forEach(btn => {
+                btn.addEventListener('touchstart', function() {
+                    this.classList.add('touch-active');
+                    gsap.to(this, { scale: 0.95, duration: 0.2 });
+                });
+                
+                btn.addEventListener('touchend', function() {
+                    this.classList.remove('touch-active');
+                    gsap.to(this, { scale: 1, duration: 0.3, ease: "back.out(1.7)" });
+                });
+            });
+            
+            // Property cards touch interactions
+            const propertyCards = document.querySelectorAll('.property-card-ultimate');
+            propertyCards.forEach(card => {
+                // Disable hover effects on mobile, replace with touch
+                if (isMobile()) {
+                    card.style.cursor = 'pointer';
+                    
+                    card.addEventListener('touchstart', function() {
+                        gsap.to(this, { scale: 0.98, duration: 0.2 });
+                    });
+                    
+                    card.addEventListener('touchend', function() {
+                        gsap.to(this, { scale: 1, duration: 0.3, ease: "back.out(1.7)" });
+                    });
+                } else {
+                    // 3D tilt effect on mouse move for desktop
+                    card.addEventListener('mousemove', function(e) {
+                        const rect = this.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const rotateY = ((x - centerX) / centerX) * 10;
+                        const rotateX = ((centerY - y) / centerY) * 10;
+                        
+                        gsap.to(this, {
+                            rotationY: rotateY,
+                            rotationX: rotateX,
+                            transformPerspective: 1000,
+                            duration: 0.5,
+                            ease: "power2.out"
+                        });
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        gsap.to(this, {
+                            rotationY: 0,
+                            rotationX: 0,
+                            duration: 0.7,
+                            ease: "elastic.out(1, 0.5)"
+                        });
+                    });
+                }
+            });
+            
+            // Disable some animations on mobile for better performance
+            if (isMobile()) {
+                // Reduce animation intensity
+                gsap.defaults({
+                    duration: 0.8
+                });
+                
+                // Optimize scroll animations for mobile
+                ScrollTrigger.config({
+                    limitCallbacks: true,
+                    ignoreMobileResize: true
+                });
+            }
+        }
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    // Close mobile menu if open
+                    closeMobileMenu();
+                    
+                    gsap.to(window, {
+                        duration: 1.5,
+                        scrollTo: {
+                            y: targetElement,
+                            offsetY: 80
+                        },
+                        ease: "power3.inOut"
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
